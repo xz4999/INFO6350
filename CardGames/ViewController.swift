@@ -65,7 +65,16 @@ class ViewController: UIViewController {
           }
            else{
             lblWinner.text = "No winner"
-         }
+           }
+    }
+    func showAlertButton(){
+            let alertController = UIAlertController(title:"Alert", message:"Play again?", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title:"Yes", style: .default, handler:{Action in self.oneMore()}))
+        alertController.addAction(UIAlertAction(title:"No", style: .cancel, handler:{Action in exit(0)}))
+            self.present(alertController, animated: true, completion:nil)
+        }
+        
+    func oneMore(){
+        roll();
 }
-
 }
