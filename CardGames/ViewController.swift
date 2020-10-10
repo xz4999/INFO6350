@@ -39,6 +39,8 @@ class ViewController: UIViewController {
         roll()
     }
     
+    
+    
     func roll(){
             let val1 = Int.random(in: 0..<52)
             let val2 = Int.random(in: 0..<52)
@@ -56,17 +58,20 @@ class ViewController: UIViewController {
         card6.image = UIImage(named:cardNames[val6])
 
         if cardNames[val1] == "AS" || cardNames[val2] == "AS" || cardNames[val3] == "AS"
-            {lblWinner.text = "Winner is player 1"
-            }
+                    {lblWinner.text = "Winner is player 1"
+                        showAlertButton()
+                    }
 
-           else if cardNames[val4] == "AS" || cardNames[val5] == "AS"
-                    || cardNames[val6] == "AS"{
-            lblWinner.text = "Winner is player 2"
-          }
-           else{
-            lblWinner.text = "No winner"
-           }
-    }
+                   else if cardNames[val4] == "AS" || cardNames[val5] == "AS"
+                            || cardNames[val6] == "AS"{
+                    lblWinner.text = "Winner is player 2"
+                    showAlertButton()
+                  }
+                   else{
+                    lblWinner.text = "No winner"
+                   }
+   }
+    
     func showAlertButton(){
             let alertController = UIAlertController(title:"Alert", message:"Play again?", preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title:"Yes", style: .default, handler:{Action in self.oneMore()}))
